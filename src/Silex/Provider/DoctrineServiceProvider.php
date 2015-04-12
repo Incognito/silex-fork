@@ -25,7 +25,7 @@ use Symfony\Bridge\Doctrine\Logger\DbalLogger;
  */
 class DoctrineServiceProvider implements ServiceProviderInterface
 {
-    public function register(Application $app)
+    public function register($app)
     {
         $app['db.default_options'] = array(
             'driver'   => 'pdo_mysql',
@@ -127,7 +127,7 @@ class DoctrineServiceProvider implements ServiceProviderInterface
         });
     }
 
-    public function boot(Application $app)
+    public function boot($app)
     {
     }
 }

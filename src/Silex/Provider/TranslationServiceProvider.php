@@ -25,7 +25,7 @@ use Symfony\Component\Translation\Loader\XliffFileLoader;
  */
 class TranslationServiceProvider implements ServiceProviderInterface
 {
-    public function register(Application $app)
+    public function register($app)
     {
         $app['translator'] = $app->share(function ($app) {
             $translator = new Translator($app, $app['translator.message_selector']);
@@ -57,7 +57,7 @@ class TranslationServiceProvider implements ServiceProviderInterface
         $app['locale_fallbacks'] = array('en');
     }
 
-    public function boot(Application $app)
+    public function boot($app)
     {
     }
 }

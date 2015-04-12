@@ -25,7 +25,7 @@ use Symfony\Component\Security\Http\RememberMe\ResponseListener;
  */
 class RememberMeServiceProvider implements ServiceProviderInterface
 {
-    public function register(Application $app)
+    public function register($app)
     {
         $app['security.remember_me.response_listener'] = $app->share(function () {
             return new ResponseListener();
@@ -94,7 +94,7 @@ class RememberMeServiceProvider implements ServiceProviderInterface
         });
     }
 
-    public function boot(Application $app)
+    public function boot($app)
     {
         if (!isset($app['security'])) {
             throw new \LogicException('You must register the SecurityServiceProvider to use the RememberMeServiceProvider');

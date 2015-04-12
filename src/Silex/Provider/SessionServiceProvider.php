@@ -32,7 +32,7 @@ class SessionServiceProvider implements ServiceProviderInterface
 {
     private $app;
 
-    public function register(Application $app)
+    public function register($app)
     {
         $this->app = $app;
 
@@ -112,7 +112,7 @@ class SessionServiceProvider implements ServiceProviderInterface
         }
     }
 
-    public function boot(Application $app)
+    public function boot($app)
     {
         $app['dispatcher']->addListener(KernelEvents::REQUEST, array($this, 'onEarlyKernelRequest'), 128);
 

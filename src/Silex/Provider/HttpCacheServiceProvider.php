@@ -25,7 +25,7 @@ use Symfony\Component\HttpKernel\EventListener\EsiListener;
  */
 class HttpCacheServiceProvider implements ServiceProviderInterface
 {
-    public function register(Application $app)
+    public function register($app)
     {
         $app['http_cache'] = $app->share(function ($app) {
             $app['http_cache.options'] = array_replace(
@@ -52,7 +52,7 @@ class HttpCacheServiceProvider implements ServiceProviderInterface
         $app['http_cache.options'] = array();
     }
 
-    public function boot(Application $app)
+    public function boot($app)
     {
         $app['dispatcher']->addSubscriber($app['http_cache.esi_listener']);
     }

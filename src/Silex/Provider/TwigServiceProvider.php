@@ -28,7 +28,7 @@ use Symfony\Bridge\Twig\Form\TwigRenderer;
  */
 class TwigServiceProvider implements ServiceProviderInterface
 {
-    public function register(Application $app)
+    public function register($app)
     {
         $app['twig.options'] = array();
         $app['twig.form.templates'] = array('form_div_layout.html.twig');
@@ -110,7 +110,7 @@ class TwigServiceProvider implements ServiceProviderInterface
         });
     }
 
-    public function boot(Application $app)
+    public function boot($app)
     {
     }
 }

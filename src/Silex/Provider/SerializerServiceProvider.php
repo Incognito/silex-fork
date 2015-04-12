@@ -33,9 +33,9 @@ class SerializerServiceProvider implements ServiceProviderInterface
      * This method registers a serializer service. {@link http://api.symfony.com/master/Symfony/Component/Serializer/Serializer.html
      * The service is provided by the Symfony Serializer component}.
      *
-     * @param Silex\Application $app
+     * @param $app
      */
-    public function register(Application $app)
+    public function register($app)
     {
         $app['serializer'] = $app->share(function () use ($app) {
             return new Serializer($app['serializer.normalizers'], $app['serializer.encoders']);
@@ -57,7 +57,7 @@ class SerializerServiceProvider implements ServiceProviderInterface
      *
      * @param Silex\Application $app
      */
-    public function boot(Application $app)
+    public function boot($app)
     {
     }
 }

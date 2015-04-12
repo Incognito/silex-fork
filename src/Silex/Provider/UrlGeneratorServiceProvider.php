@@ -22,7 +22,7 @@ use Symfony\Component\Routing\Generator\UrlGenerator;
  */
 class UrlGeneratorServiceProvider implements ServiceProviderInterface
 {
-    public function register(Application $app)
+    public function register($app)
     {
         $app['url_generator'] = $app->share(function ($app) {
             $app->flush();
@@ -31,7 +31,7 @@ class UrlGeneratorServiceProvider implements ServiceProviderInterface
         });
     }
 
-    public function boot(Application $app)
+    public function boot($app)
     {
     }
 }

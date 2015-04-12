@@ -29,7 +29,7 @@ use Symfony\Component\HttpKernel\UriSigner;
  */
 class HttpFragmentServiceProvider implements ServiceProviderInterface
 {
-    public function register(Application $app)
+    public function register($app)
     {
         if (!class_exists('Symfony\Component\HttpFoundation\RequestStack')) {
             throw new \LogicException('The HTTP Fragment service provider only works with Symfony 2.4+.');
@@ -82,7 +82,7 @@ class HttpFragmentServiceProvider implements ServiceProviderInterface
         });
     }
 
-    public function boot(Application $app)
+    public function boot($app)
     {
         $app['dispatcher']->addSubscriber($app['fragment.listener']);
     }

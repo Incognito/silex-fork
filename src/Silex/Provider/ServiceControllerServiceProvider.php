@@ -17,14 +17,14 @@ use Silex\ServiceControllerResolver;
 
 class ServiceControllerServiceProvider implements ServiceProviderInterface
 {
-    public function register(Application $app)
+    public function register($app)
     {
         $app['resolver'] = $app->share($app->extend('resolver', function ($resolver, $app) {
             return new ServiceControllerResolver($resolver, $app['callback_resolver']);
         }));
     }
 
-    public function boot(Application $app)
+    public function boot($app)
     {
         // noop
     }

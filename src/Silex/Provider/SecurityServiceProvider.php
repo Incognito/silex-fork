@@ -61,7 +61,7 @@ class SecurityServiceProvider implements ServiceProviderInterface
 {
     protected $fakeRoutes;
 
-    public function register(Application $app)
+    public function register($app)
     {
         // used to register routes for login_check and logout
         $this->fakeRoutes = array();
@@ -535,7 +535,7 @@ class SecurityServiceProvider implements ServiceProviderInterface
         }
     }
 
-    public function boot(Application $app)
+    public function boot($app)
     {
         $app['dispatcher']->addSubscriber($app['security.firewall']);
 

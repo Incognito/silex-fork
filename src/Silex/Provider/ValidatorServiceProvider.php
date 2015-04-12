@@ -26,7 +26,7 @@ use Symfony\Component\Validator\Mapping\Loader\StaticMethodLoader;
  */
 class ValidatorServiceProvider implements ServiceProviderInterface
 {
-    public function register(Application $app)
+    public function register($app)
     {
         $app['validator'] = $app->share(function ($app) {
             if (isset($app['translator'])) {
@@ -61,7 +61,7 @@ class ValidatorServiceProvider implements ServiceProviderInterface
         });
     }
 
-    public function boot(Application $app)
+    public function boot($app)
     {
     }
 }

@@ -25,7 +25,7 @@ use Silex\EventListener\LogListener;
  */
 class MonologServiceProvider implements ServiceProviderInterface
 {
-    public function register(Application $app)
+    public function register($app)
     {
         $app['logger'] = function () use ($app) {
             return $app['monolog'];
@@ -72,7 +72,7 @@ class MonologServiceProvider implements ServiceProviderInterface
         $app['monolog.permission'] = null;
     }
 
-    public function boot(Application $app)
+    public function boot($app)
     {
         if (isset($app['monolog.listener'])) {
             $app['dispatcher']->addSubscriber($app['monolog.listener']);

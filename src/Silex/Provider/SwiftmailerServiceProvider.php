@@ -21,7 +21,7 @@ use Silex\ServiceProviderInterface;
  */
 class SwiftmailerServiceProvider implements ServiceProviderInterface
 {
-    public function register(Application $app)
+    public function register($app)
     {
         $app['swiftmailer.options'] = array();
         $app['swiftmailer.use_spool'] = true;
@@ -86,7 +86,7 @@ class SwiftmailerServiceProvider implements ServiceProviderInterface
         });
     }
 
-    public function boot(Application $app)
+    public function boot($app)
     {
         $app->finish(function () use ($app) {
             // To speed things up (by avoiding Swift Mailer initialization), flush
