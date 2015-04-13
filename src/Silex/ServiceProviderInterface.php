@@ -24,7 +24,7 @@ interface ServiceProviderInterface
      * This method should only be used to configure services and parameters.
      * It should not get services.
      */
-    public function register(Application $app);
+    public function register($app);
 
     /**
      * Bootstraps the application.
@@ -33,5 +33,5 @@ interface ServiceProviderInterface
      * and should be used for "dynamic" configuration (whenever
      * a service must be requested).
      */
-    public function boot(Application $app);
+    public function boot($app);
 }
